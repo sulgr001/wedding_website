@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 100px);
+        padding: 20px 0;
+    }
+    form {
+        width: 80%;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background: #f9f9f9;
+    }
+    .drag-container {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .drag-container li {
+        padding: 10px;
+        margin: 4px 0;
+        background: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: move;
+    }
+    label {
+        font-weight: bold;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="form-container">
+    <form method="POST">
+        <!-- Guest Name -->
+        <div class="form-group">
+            <label>Name for {{ current_guest }}:</label>
+            <input
+                type="text"
+                name="guest_name"
+                placeholder="Enter the guest's name"
+                value="{{ current_guest }}"
+                required
+            >
+        </div>
+
+        <!-- Attendance -->
+        <div class="form-group">
+            <label>Will they attend?</label><br>
+            <input type="radio" name="attend" value="yes" required> Yes
+            <input type="radio" name="attend" value="no"> No
+        </div>
+
+        <!-- Event Attendance -->
+        {% if 'Friday' in data['events'] %}
+            <div class="form-group">
+                <label>Will they attend the Friday event?</label><br>
+                <input type="radio" name="friday" value="yes" required> Yes
+                <input type="radio" name="friday" value="no"> No
+            </div>
+        {% endif %}
+
+        {% if 'Saturday' in data['events'] %}
+            <div class="form-group">
+                <label>Will they attend the Saturday event?</label><br>
+                <input type="radio" name="saturday" value="yes" required> Yes
+                <input type="radio" name="saturday" value="no"> No
+            </div>
+        {% endif %}
+
+        {% if 'Sunday' in data['events'] %}
+            <div class="form-group">
+                <label>Will they attend the Sunday event?</label><br>
+                <input type="radio" name="sunday" value="yes" required> Yes
+                <input type="radio" name="sunday" value="no"> No
+            </div>
+        {% endif %}
+
+        <!-- Food Preference -->
+        <div class="form-group">
+            <label>Rank the food options:</label>
+            <p>Use numbers to rank your preferences (1 = most preferred, 3 = least preferred).</p>
+            <div>
+                <label>Chicken:</label>
+                <input type="number" name="food_chicken" min="1" max="3" required>
+            </div>
+            <div>
+                <label>Beef:</label>
+                <input type="number" name="food_beef" min="1" max="3" required>
+            </div>
+            <div>
+                <label>Vegetarian:</label>
+                <input type="number" name="food_vegetarian" min="1" max="3" required>
+            </div>
+        </div>
+
+        <!-- Drink Preference -->
+        <div class="form-group">
+            <label>Drink preference:</label><br>
+            <select name="drink" required>
+                <option value="white wine">White Wine</option>
+                <option value="red wine">Red Wine</option>
+                <option value="beer">Beer</option>
+            </select>
+        </div>
+
+        <!-- Songs -->
+        <div class="form-group">
+            <label>Three songs they'd like to dance to:</label><br>
+            <input type="text" name="song1" placeholder="Song 1" required><br>
+            <input type="text" name="song2" placeholder="Song 2" required><br>
+            <input type="text" name="song3" placeholder="Song 3" required>
+        </div>
+
+        <!-- Lodging -->
+        <div class="form-group">
+            <label>Do they need help with lodging?</label><br>
+            <input type="radio" name="lodging" value="yes" required> Yes
+            <input type="radio" name="lodging" value="no"> No
+        </div>
+
+        <!-- Submit or Next -->
+        <button type="submit" name="action" value="next">Next</button>
+        <button type="submit" name="action" value="submit">Submit RSVP</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* Center the form on the page */
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Adjust height for vertical centering */
+        text-align: center;
+    }
+    form {
+        width: 100%;
+        max-width: 400px; /* Limit form width */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background: #f9f9f9;
+    }
+    label {
+        font-weight: bold;
+    }
+</style>
+
+<div class="form-container">
+    <form action="/find-invitee" method="POST">
+        <h1>RSVP Lookup</h1>
+        <div class="form-group">
+            <label for="name">Enter Your Full Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="e.g., John Doe" required>
+        </div>
+        <button type="submit">Lookup</button>
+    </form>
+</div>
+{% endblock %}
+

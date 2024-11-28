@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>RSVP Results for {{ name }}</h1>
+<ul>
+    {% for result in results %}
+        <li>
+            <strong>Guest Name:</strong> {{ result.guest_name }}<br>
+            <strong>Attend:</strong> {{ result.attend }}<br>
+            <strong>Friday:</strong> {{ result.friday }}<br>
+            <strong>Saturday:</strong> {{ result.saturday }}<br>
+            <strong>Sunday:</strong> {{ result.sunday }}<br>
+            <strong>Food Order:</strong> {{ result.food_order }}<br>
+            <strong>Drink:</strong> {{ result.drink }}<br>
+            <strong>Songs:</strong> {{ result.song1 }}, {{ result.song2 }}, {{ result.song3 }}<br>
+            <strong>Lodging:</strong> {{ result.lodging }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
