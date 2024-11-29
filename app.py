@@ -46,9 +46,15 @@ INVITEE_DATA = {
 # RSVP Data storage
 RSVP_DATA = {}
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+@app.route("/")
+def index():
+    return render_template(
+        "index.html",
+        groom_name="MICHAEL SULGROVE",
+        bride_name="MADELINE BURGOYNE",
+        wedding_date="June 28, 2025",
+        ceremony_details="Join us for a beautiful ceremony at Pebble Cove Farm, 3:00 PM."
+    )
 
 @app.route('/events')
 def events():

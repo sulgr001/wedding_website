@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+
+{% block intro %}
+<h3>Welcome to our wedding website!</h3>
+<p>We are so excited to celebrate this special day with all of you. Please explore the site to RSVP, view event details, and enjoy our photo gallery!</p>
+<h1>{{ groom_name }} & {{ bride_name }}</h1>
+<h2>{{ wedding_date }}</h2>
+<p>{{ ceremony_details }}</p>
+{% endblock %}
 {% block content %}
 <style>
     /* Center the form on the page */
