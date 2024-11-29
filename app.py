@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
+import os
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -215,6 +216,11 @@ def lookup():
 
     return render_template('lookup.html')
 
+@app.route("/gallery")
+def gallery():
+    image_folder = os.path.join(app.static_folder, "images")
+    image_list = [f"images/{img}" for img in os.listdir(image_folder) if img.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
+    return render_template("gallery.html", images=image_list)
 
 if __name__ == '__main__':
     app.run(debug=True)
