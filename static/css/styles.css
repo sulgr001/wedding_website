@@ -27,3 +27,26 @@ footer {
     background: #333;
     color: #fff;
 }
+
+ul, ol {
+    list-style-type: none; /* Remove bullets or numbers */
+    margin: 0;             /* Reset margin */
+    padding: 0;            /* Reset padding */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullets */
+    margin: 0;             /* Reset margin */
+    padding: 0;            /* Reset padding */
+    display: flex;         /* Optional: Make navigation horizontal */
+    gap: 15px;             /* Optional: Space between items */
+}
+
+nav ul li {
+    display: inline;       /* Keep list items in one line */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline */
+    color: inherit;        /* Use inherited text color */
+}

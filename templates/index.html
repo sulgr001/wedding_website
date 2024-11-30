@@ -26,19 +26,24 @@
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         background: #f9f9f9;
     }
+    .form-group {
+            margin-bottom: 15px; /* Add spacing between rows */
+    }
     label {
-        font-weight: bold;
+            display: block; /* Ensures label appears above input */
+            font-weight: bold;
+            margin-bottom: 5px; /* Spacing between label and input */
     }
 </style>
 
 <div class="form-container">
     <form action="/find-invitee" method="POST">
-        <h1>RSVP Lookup</h1>
+        <h1>RSVP Here!</h1>
         <div class="form-group">
             <label for="name">Enter Your Full Name:</label><br>
             <input type="text" id="name" name="name" placeholder="e.g., John Doe" required>
         </div>
-        <button type="submit">Lookup</button>
+        <button type="submit">RSVP</button>
     </form>
 </div>
 {% endblock %}

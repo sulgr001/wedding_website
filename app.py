@@ -228,5 +228,10 @@ def gallery():
     image_list = [f"images/{img}" for img in os.listdir(image_folder) if img.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
     return render_template("gallery.html", images=image_list)
 
+@app.route("/travel")
+def travel():
+    return render_template("travel.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)

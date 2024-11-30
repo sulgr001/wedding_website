@@ -15,7 +15,7 @@
             color: #333;
         }
         nav {
-            background-color: #333;
+            background-color:#63783a;
             color: white;
             padding: 10px 0;
             text-align: center;
@@ -55,8 +55,46 @@
             color: #666;
             margin: 20px 0 0;
         }
+        ul {
+            list-style-type: none; /* Removes bullets */
+            padding: 0;            /* Removes left indentation */
+            margin: 0;             /* Removes margin */
+        }
         main {
             padding: 20px;
+        }
+        footer {
+            background-color: #63783a; /* Drab olive green */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        footer a, footer button {
+            color: white;
+            text-decoration: none;
+            border: none;
+            background: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        footer a:hover, footer button:hover {
+            text-decoration: underline;
+        }
+        #top-button {
+            margin: 10px;
+            padding: 10px 15px;
+            background-color: white;
+            color: #63783a;
+            border: 2px solid white;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #top-button:hover {
+            background-color: #63783a; /* Slightly darker green */
+            color: white;
         }
     </style>
 </head>
@@ -64,8 +102,9 @@
     <nav>
         <a href="{{ url_for('index') }}">Home</a>
         <a href="{{ url_for('events') }}">Events</a>
-        <a href="{{ url_for('rsvp') }}">RSVP</a>
+        <a href="{{ url_for('lookup') }}">RSVP Lookup</a>
         <a href="{{ url_for('gallery') }}">Photo Gallery</a>
+        <a href="{{ url_for('travel') }}">Travel</a>
     </nav>
     
     <header>
@@ -73,7 +112,19 @@
     </header>
     
     <main>
+
         {% block content %}{% endblock %}
     </main>
+    <footer>
+        <button id="top-button" onclick="scrollToTop()">Return to Top</button>
+        <p>&copy; Mike and Maddie 2024</p>
+        <button onclick="window.location.href='mailto:sulgr001@gmail.com';">Email Us</button>
+    </footer>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
