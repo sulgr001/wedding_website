@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}RSVP Successful{% endblock %}
+
+{% block content %}
+<div class="rsvp-success">
+    <h1>RSVP Successful!</h1>
+    <p>Thank you, {{ name }}, for completing your RSVP.</p>
+    <p>You have RSVP'd for {{ guests }} guest(s).</p>
+    <a href="{{ url_for('index') }}" class="btn">Return to Home</a>
+</div>
+
+<style>
+    .rsvp-success {
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: center;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .rsvp-success h1 {
+        color: #6b8e23;
+    }
+
+    .rsvp-success p {
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+    .rsvp-success .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #6b8e23;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    .rsvp-success .btn:hover {
+        background-color: #5d7a1f;
+    }
+</style>
+{% endblock %}

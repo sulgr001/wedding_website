@@ -1,50 +1,123 @@
 {% extends 'base.html' %}
 
-{% block intro %}
-<h3>Welcome to our wedding website!</h3>
-<p>We are so excited to celebrate this special day with all of you. Please explore the site to RSVP, view event details, and enjoy our photo gallery!</p>
-<h1>{{ groom_name }} & {{ bride_name }}</h1>
-<h2>{{ wedding_date }}</h2>
-<p>{{ ceremony_details }}</p>
-{% endblock %}
-{% block content %}
-<style>
-    /* Center the form on the page */
-    .form-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80vh; /* Adjust height for vertical centering */
-        text-align: center;
-    }
-    form {
-        width: 100%;
-        max-width: 400px; /* Limit form width */
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        background: #f9f9f9;
-    }
-    .form-group {
-            margin-bottom: 15px; /* Add spacing between rows */
-    }
-    label {
-            display: block; /* Ensures label appears above input */
-            font-weight: bold;
-            margin-bottom: 5px; /* Spacing between label and input */
-    }
-</style>
+{% block title %}Welcome{% endblock %}
 
+{% block content %}
+<h1>Welcome to Our Wedding!</h1>
+<p>We are so excited to celebrate with you. Please RSVP below and check out our itinerary!</p>
+
+<!-- RSVP Section -->
 <div class="form-container">
     <form action="/find-invitee" method="POST">
-        <h1>RSVP Here!</h1>
+        <h2>RSVP Here!</h2>
         <div class="form-group">
-            <label for="name">Enter Your Full Name:</label><br>
+            <label for="name">Enter Your Full Name:</label>
             <input type="text" id="name" name="name" placeholder="e.g., John Doe" required>
         </div>
         <button type="submit">RSVP</button>
     </form>
 </div>
-{% endblock %}
 
+<!-- Itinerary Section -->
+<div class="itinerary">
+    <h2>Itinerary</h2>
+
+    <h3>Friday Night</h3>
+    <p><strong>Friday, June 27, 2025</strong><br>Pebble Cove Farm</p>
+    <p><strong>7:00 PM–10:00 PM</strong><br>Dinner and Drinks<br>Pebble Cove Farm</p>
+
+    <h3>Wedding!</h3>
+    <p><strong>Saturday, June 28, 2025</strong><br>Pebble Cove Farm<br>3341 Deer Harbor Rd, Eastsound, WA, 98245<br><strong>Attire:</strong> Dressy casual</p>
+    <p><strong>2:00 PM–3:00 PM</strong><br>Ceremony</p>
+    <p><strong>3:00 PM–6:00 PM</strong><br>Cocktail Hours</p>
+    <p><strong>6:00 PM–8:00 PM</strong><br>Dinner</p>
+    <p><strong>8:00 PM–10:00 PM</strong><br>Dancing</p>
+    <p><strong>10:00 PM–12:00 AM</strong><br>Afterparty</p>
+
+    <h3>Brunch</h3>
+    <p><strong>Sunday, June 29, 2025</strong><br>8:30 AM–11:00 AM<br>Pebble Cove Farm<br>3341 Deer Harbor Rd, Eastsound, WA, 98245</p>
+</div>
+
+<style>
+    /* General page styles */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+    }
+
+    h1, p {
+        margin: 0;
+        padding: 15px 0; /* Add a bit of spacing for better separation */
+    }
+
+    /* RSVP section styling */
+    .form-container {
+        max-width: 600px;
+        margin: 20px auto; /* Center the RSVP section */
+        text-align: center;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+        margin-bottom: 15px; /* Space between the title and form */
+        color: #6b8e23; /* Match drab olive green aesthetic */
+    }
+
+    .form-container .form-group {
+        margin-bottom: 15px; /* Add spacing between form elements */
+    }
+
+    .form-container label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-container input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .form-container button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #6b8e23;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #5d7a1f; /* Slightly darker green for hover */
+    }
+
+    /* Itinerary section styling */
+    .itinerary {
+        max-width: 600px;
+        margin: 20px auto; /* Center the itinerary */
+        text-align: center; /* Center text in itinerary */
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .itinerary h2, .itinerary h3 {
+        color: #6b8e23; /* Match aesthetic */
+        margin-bottom: 10px; /* Add a bit of spacing */
+    }
+
+    .itinerary p {
+        margin: 10px 0; /* Adjust spacing between events */
+        line-height: 1.4; /* Adjust line height for better readability */
+    }
+</style>
+{% endblock %}

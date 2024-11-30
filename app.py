@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from flask_sqlalchemy import SQLAlchemy
+import json
 
 app = Flask(__name__)
 
@@ -38,10 +39,10 @@ with app.app_context():
     db.create_all()
 
 # Sample invitee data (use a real database in production)
-INVITEE_DATA = {
-    "Paul Burgoyne": {"guests_allowed": 2, "events": ["Friday", "Saturday", "Sunday"]},
-    "Lucy Burgoyne": {"guests_allowed": 2, "events": ["Friday", "Saturday", "Sunday"]},
-}
+
+# Load the invitee data from the JSON file
+with open('invitee_data.json', 'r') as f:
+    INVITEE_DATA = json.load(f)
 
 # RSVP Data storage
 RSVP_DATA = {}
@@ -133,12 +134,20 @@ def rsvp():
         if action == "next":
             current_index = int(request.args.get('index', 0))
             next_index = current_index + 1
+
+            # Check if the invitee exists
+            if invitee_name not in INVITEE_DATA:
+                return render_template("not_found.html", name=invitee_name)
+
+            # Check if there are more guests to RSVP
             if next_index < INVITEE_DATA[invitee_name]['guests_allowed']:
                 return redirect(f"/rsvp?name={invitee_name}&index={next_index}")
-            else:
-                return f"All guests for {invitee_name} have RSVP'd. Thank you!"
-
-        return "Thank you for your RSVP!"
+        
+        return render_template(
+            "rsvp_success.html",
+            name=invitee_name,
+            guests=INVITEE_DATA[invitee_name]['guests_allowed']
+        )
 
     # GET request - Render form for the current guest
     current_index = int(request.args.get('index', 0))

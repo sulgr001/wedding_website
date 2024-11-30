@@ -31,9 +31,20 @@
         }
         header {
             text-align: center;
-            padding: 30px 20px;
+            padding: 20px;
             background-color: #f4f4f4;
             border-bottom: 1px solid #ddd;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #63783a; /* Drab olive green */
+        }
+        header h2 {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            color: #555;
+            font-weight: normal;
         }
         main {
             text-align: center;
@@ -99,18 +110,17 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1>Michael & Maddie</h1>
+        <h2>June 28, 2025 • Orcas Island</h2>
+    </header>
     <nav>
         <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('events') }}">Events</a>
         <a href="{{ url_for('lookup') }}">RSVP Lookup</a>
         <a href="{{ url_for('gallery') }}">Photo Gallery</a>
         <a href="{{ url_for('travel') }}">Travel</a>
     </nav>
-    
-    <header>
-
-    </header>
-    
+  
     <main>
 
         {% block content %}{% endblock %}
