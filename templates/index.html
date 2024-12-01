@@ -1,15 +1,18 @@
+<head>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
 {% extends 'base.html' %}
-
 {% block title %}Welcome{% endblock %}
-
 {% block content %}
+
 <h1>Welcome to Our Wedding Website!</h1>
 <p>We are so excited to celebrate with you! Please RSVP below and check out our itinerary.</p>
 
 <!-- RSVP Section -->
 <div class="form-container">
     <form action="/find-invitee" method="POST">
-        <h2>RSVP Here!</h2>
+        <h2>RSVP Here</h2>
         <div class="form-group">
             <label for="name">Enter Your Full Name:</label>
             <input type="text" id="name" name="name" placeholder="e.g., John Doe" required>
@@ -18,14 +21,11 @@
     </form>
 </div>
 
-<!-- Itinerary Section -->
-<div class="itinerary">
-    <h2>Itinerary</h2>
 
+<h1>Itinerary</h1>
     <h3>Day Before Activities</h3>
     <p><strong>Friday, June 27, 2025</strong><br>Pebble Cove Farm</p>
     <p><strong>7:00 PM–10:00 PM</strong><br>Dinner and Drinks</p>
-
     <h3>Wedding!</h3>
     <p><strong>Saturday, June 28, 2025</strong><br>Pebble Cove Farm<br>3341 Deer Harbor Rd, Eastsound, WA, 98245<br><strong>Attire:</strong> Dressy casual</p>
     <p><strong>2:00 PM–3:00 PM</strong><br>Ceremony</p>
@@ -33,91 +33,8 @@
     <p><strong>6:00 PM–8:00 PM</strong><br>Dinner</p>
     <p><strong>8:00 PM–10:00 PM</strong><br>Dancing</p>
     <p><strong>10:00 PM–12:00 AM</strong><br>Afterparty</p>
-
     <h3>Brunch</h3>
     <p><strong>Sunday, June 29, 2025</strong><br>8:30 AM–11:00 AM<br>Pebble Cove Farm<br>3341 Deer Harbor Rd, Eastsound, WA, 98245</p>
-</div>
 
-<style>
-    /* General page styles */
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-    }
 
-    h1, p {
-        margin: 0;
-        padding: 15px 0; /* Add a bit of spacing for better separation */
-    }
-
-    /* RSVP section styling */
-    .form-container {
-        max-width: 600px;
-        margin: 20px auto; /* Center the RSVP section */
-        text-align: center;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-container h2 {
-        margin-bottom: 15px; /* Space between the title and form */
-        color: #6b8e23; /* Match drab olive green aesthetic */
-    }
-
-    .form-container .form-group {
-        margin-bottom: 15px; /* Add spacing between form elements */
-    }
-
-    .form-container label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .form-container input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    .form-container button {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #6b8e23;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .form-container button:hover {
-        background-color: #5d7a1f; /* Slightly darker green for hover */
-    }
-
-    /* Itinerary section styling */
-    .itinerary {
-        max-width: 600px;
-        margin: 20px auto; /* Center the itinerary */
-        text-align: center; /* Center text in itinerary */
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .itinerary h2, .itinerary h3 {
-        color: #6b8e23; /* Match aesthetic */
-        margin-bottom: 10px; /* Add a bit of spacing */
-    }
-
-    .itinerary p {
-        margin: 10px 0; /* Adjust spacing between events */
-        line-height: 1.4; /* Adjust line height for better readability */
-    }
-</style>
 {% endblock %}
