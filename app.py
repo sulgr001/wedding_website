@@ -57,18 +57,21 @@ def index():
         ceremony_details="Join us for a beautiful ceremony at Pebble Cove Farm, 3:00 PM."
     )
 
-@app.route('/events')
-def events():
-    return render_template('events.html')
+#@app.route('/events')
+#def events():
+#    return render_template('events.html')
 
 @app.route('/find-invitee', methods=['POST'])
 def find_invitee():
-    invitee_name = request.form.get('name')
-
-    if invitee_name in INVITEE_DATA:
-        return redirect(f'/rsvp?name={invitee_name}')
+    invitee_name = request.form.get('name').lower()
+    print(invitee_name)
+    matched_invitee = next((name for name in INVITEE_DATA if name.lower()==invitee_name),None)
+    print(matched_invitee)
+    if matched_invitee:
+    #invitee_name in INVITEE_DATA:
+        return redirect(f'/rsvp?name={matched_invitee}')
     else:
-        return "Invitee not found. Please check your name and try again!", 404
+        return "Invitee not found. Please check your name and try again! Mike and Maddie are also trying their best here, but not RSVP database experts, so just text them if you can't get this to work.", 404
 
 @app.route('/rsvp', methods=['GET', 'POST'])
 def rsvp():
