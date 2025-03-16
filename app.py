@@ -244,6 +244,9 @@ def gallery():
 def travel():
     return render_template("travel.html")
 
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

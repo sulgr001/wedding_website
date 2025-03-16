@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+<div class="content-container">
+
+    <h1>What do I wear?</h1>
+    <h1>Where do I park?</h1>
+    <h1>Is there a registry?</h1>
+    <h1>How do I RSVP?</h1>
+
+
+</div>
+
+<style>
+    .content-container {
+        max-width: 600px; /* Adjust this value as needed */
+        margin: 0 auto; /* Center the content horizontally */
+        padding: 20px; /* Add some padding for better readability */
+    }
+
+    .content-container p {
+        line-height: 1.6; /* Improve readability with increased line height */
+    }
+
+    .content-container ul {
+        padding-left: 20px; /* Maintain indentation for list items */
+        margin-bottom: 20px; /* Add spacing below lists */
+    }
+
+    .content-container h1, .content-container h2 {
+        text-align: center; /* Center headings */
+    }
+</style>
+
+{% endblock %}
