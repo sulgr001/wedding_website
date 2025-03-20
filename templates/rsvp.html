@@ -44,7 +44,7 @@
     <form method="POST">
         <!-- Guest Name -->
         <div class="form-group">
-            <label>Name for {{ current_guest }}:</label>
+            <label>Name for guest:</label>
             <input
                 type="text"
                 name="guest_name"
@@ -53,7 +53,7 @@
                 required
             >
         </div>
-
+    <p>If there are multiple people in your party, hit "next" at the end to fill out the form for everyone in your group!</p>
         <!-- Attendance -->
         <div class="form-group">
             <label>Will they attend?</label><br>
@@ -86,40 +86,13 @@
             </div>
         {% endif %}
 
-        <!-- Food Preference -->
-        <div class="form-group">
-            <label>Rank the food options:</label>
-            <p>Use numbers to rank your preferences (1 = most preferred, 3 = least preferred).</p>
-            <div>
-                <label>Chicken:</label>
-                <input type="number" name="food_chicken" min="1" max="3" required>
-            </div>
-            <div>
-                <label>Beef:</label>
-                <input type="number" name="food_beef" min="1" max="3" required>
-            </div>
-            <div>
-                <label>Vegetarian:</label>
-                <input type="number" name="food_vegetarian" min="1" max="3" required>
-            </div>
-        </div>
-
-        <!-- Drink Preference -->
-        <div class="form-group">
-            <label>Drink preference:</label><br>
-            <select name="drink" required>
-                <option value="white wine">White Wine</option>
-                <option value="red wine">Red Wine</option>
-                <option value="beer">Beer</option>
-            </select>
-        </div>
-
+    
         <!-- Songs -->
         <div class="form-group">
             <label>Three songs they'd like to dance to:</label><br>
-            <input type="text" name="song1" placeholder="Song 1" required><br>
-            <input type="text" name="song2" placeholder="Song 2" required><br>
-            <input type="text" name="song3" placeholder="Song 3" required>
+            <input type="text" name="song1" placeholder="Song 1" ><br>
+            <input type="text" name="song2" placeholder="Song 2" ><br>
+            <input type="text" name="song3" placeholder="Song 3" >
         </div>
 
         <!-- Lodging -->
@@ -128,6 +101,13 @@
             <input type="radio" name="lodging" value="yes" required> Yes
             <input type="radio" name="lodging" value="no"> No
         </div>
+
+        <!-- Comments -->
+    <div class="form-group">
+        <label>How many kids are you bringing? Leave blank if none</label><br>
+        <textarea name="comments" placeholder="No kids 4 me" rows="3" style="width: 100%;"></textarea>
+    </div>
+
 
         <!-- Submit or Next -->
         <button type="submit" name="action" value="next">Next</button>

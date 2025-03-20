@@ -71,7 +71,7 @@ def find_invitee():
     #invitee_name in INVITEE_DATA:
         return redirect(f'/rsvp?name={matched_invitee}')
     else:
-        return "Invitee not found. Please check your name and try again! Mike and Maddie are also trying their best here, but not RSVP database experts, so just text them if you can't get this to work.", 404
+        return "Invitee not found. Please check your name and try again! Also we could have spelled your name wrong, text us if you can't get it to work.", 404
 
 @app.route('/rsvp', methods=['GET', 'POST'])
 def rsvp():
@@ -226,7 +226,7 @@ def rsvp():
 @app.route('/lookup', methods=['GET', 'POST'])
 def lookup():
     if request.method == 'POST':
-        invitee_name = request.form.get('name')
+        invitee_name = request.form.get('name').title()
         results = RSVP.query.filter_by(invitee_name=invitee_name).all()
         for result in results:
             print(result)  # This will now use the __repr__ method to print the full row
